@@ -21,13 +21,14 @@ export default function Home() {
       </select>
       <h2>문제 세트</h2>
       <ul>
-        {problemSets.map((set, index) => (
-          <li key={index}>
-            <Link href={`/problem-set/${language}/${set.name}`}>
-              {set.name} - {set.type}
-            </Link>
-          </li>
-        ))}
+        {Array.isArray(problemSets) &&
+          problemSets.map((set, index) => (
+            <li key={index}>
+              <Link href={`/problem-set/${language}/${set.name}`}>
+                {set.name} - {set.type}
+              </Link>
+            </li>
+          ))}
       </ul>
     </div>
   );
